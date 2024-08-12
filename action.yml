@@ -1,20 +1,20 @@
-name: Hello World
-description: Greet someone and record the time
+name: Glue Job Action
+description: Run an AWS Glue job.
 
 branding:
-  icon: send
-  color: white
+  icon: play
+  color: purple
 
 inputs:
-  message:
+  job:
     description: |-
-      The message to echo.
+      The name of the job definition to use.
+    required: true
+  arguments:
+    description: |-
+      The arguments to pass to the job definition.
+      You can pass multiple arguments in the form of key=value, separated by newlines.
     required: false
-    default: "Hello, world!"
-
-outputs:
-  message:
-    description: The message that was echoed.
 
 runs:
   using: node20
