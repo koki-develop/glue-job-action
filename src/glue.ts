@@ -5,15 +5,15 @@ import {
   StartJobRunCommand,
 } from "@aws-sdk/client-glue";
 
-const _client = new GlueClient();
-
 export type RunOptions = {
   job: string;
   arguments: Record<string, string>;
 };
 
 export const runJob = async (options: RunOptions): Promise<string> => {
-  const response = await _client.send(
+  const client = new GlueClient();
+
+  const response = await client.send(
     new StartJobRunCommand({
       JobName: options.job,
       Arguments: options.arguments,
@@ -25,8 +25,10 @@ export const runJob = async (options: RunOptions): Promise<string> => {
 };
 
 export const waitForJob = async (job: string, jobId: string): Promise<void> => {
+  const client = new GlueClient();
+
   while (true) {
-    const response = await _client.send(
+    const response = await client.send(
       new GetJobRunCommand({
         JobName: job,
         RunId: jobId,
