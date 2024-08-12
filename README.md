@@ -1,11 +1,22 @@
-# ts-action-template
+# glue-job-action
 
-[![GitHub Release](https://img.shields.io/github/v/release/koki-develop/ts-action-template)](https://github.com/koki-develop/ts-action-template/releases/latest)
-[![CI](https://img.shields.io/github/actions/workflow/status/koki-develop/ts-action-template/ci.yml?branch=main&logo=github&style=flat&label=ci)](https://github.com/koki-develop/ts-action-template/actions/workflows/ci.yml)
-[![Build](https://img.shields.io/github/actions/workflow/status/koki-develop/ts-action-template/build.yml?branch=main&logo=github&style=flat&label=build)](https://github.com/koki-develop/ts-action-template/actions/workflows/build.yml)
+[![GitHub Release](https://img.shields.io/github/v/release/koki-develop/glue-job-action)](https://github.com/koki-develop/glue-job-action/releases/latest)
+[![CI](https://img.shields.io/github/actions/workflow/status/koki-develop/glue-job-action/ci.yml?branch=main&logo=github&style=flat&label=ci)](https://github.com/koki-develop/glue-job-action/actions/workflows/ci.yml)
+[![Build](https://img.shields.io/github/actions/workflow/status/koki-develop/glue-job-action/build.yml?branch=main&logo=github&style=flat&label=build)](https://github.com/koki-develop/glue-job-action/actions/workflows/build.yml)
 
-This is a template for creating GitHub Actions in TypeScript.
+Run an AWS Glue job.
 
-# LICENSE
+## Usage
+
+```yaml
+- uses: koki-develop/glue-job-action@v1
+  with:
+    job: 'my-job'
+    arguments: | # Optional
+      foo=bar
+      baz=qux
+```
+
+## LICENSE
 
 [MIT](./LICENSE)
