@@ -46,7 +46,7 @@ export const waitForJob = async (job: string, jobId: string): Promise<void> => {
       case JobRunState.SUCCEEDED:
         return;
       case JobRunState.FAILED:
-        throw new Error(`Job ${jobId} failed`);
+        throw new Error(`Job ${jobId} failed: ${run.ErrorMessage}`);
       default:
         throw new Error(`Unexpected job status: ${status}`);
     }
